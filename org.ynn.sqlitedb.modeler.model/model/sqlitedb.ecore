@@ -19,12 +19,12 @@
         eOpposite="#//DatabaseVersion/nextVersion"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nextVersion" eType="#//DatabaseVersion"
         eOpposite="#//DatabaseVersion/previousVersion"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tableMapping">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tableMapping" containment="true">
       <eGenericType eClassifier="#//common/Mapping">
         <eTypeArguments eClassifier="#//table/Table"/>
       </eGenericType>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="columnMapping">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="columnMapping" containment="true">
       <eGenericType eClassifier="#//common/Mapping">
         <eTypeArguments eClassifier="#//column/Column"/>
       </eGenericType>
@@ -45,13 +45,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="NameProvider" abstract="true" interface="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="PreviousVersionProvider" abstract="true"
-        interface="true">
-      <eTypeParameters name="T"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="previousVersion">
-        <eGenericType eTypeParameter="#//common/PreviousVersionProvider/T"/>
-      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Mapping">
       <eTypeParameters name="T"/>
@@ -80,11 +73,6 @@
         <eParameters name="current">
           <eGenericType eTypeParameter="#//common/Mapping/T"/>
         </eParameters>
-      </eOperations>
-      <eOperations name="entries" upperBound="-1">
-        <eGenericType eClassifier="#//common/MappingEntry">
-          <eTypeArguments eTypeParameter="#//common/Mapping/T"/>
-        </eGenericType>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="prev2entryMap" upperBound="-1"
           containment="true">
@@ -125,17 +113,13 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="table" nsURI="http://ynn.org/sqlitedb/modeler/model/table" nsPrefix="org.ynn.sqlitedb.modeler.model">
-    <eClassifiers xsi:type="ecore:EClass" name="Table">
+    <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//common/NameProvider">
       <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
           eType="#//Database" eOpposite="#//Database/tables"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
           eType="#//column/Column" containment="true" eOpposite="#//column/Column/table"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
           eType="#//table/TableConstraint" containment="true" eOpposite="#//table/TableConstraint/table"/>
-      <eGenericSuperTypes eClassifier="#//common/NameProvider"/>
-      <eGenericSuperTypes eClassifier="#//common/PreviousVersionProvider">
-        <eTypeArguments eClassifier="#//table/Table"/>
-      </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TableConstraint" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -165,17 +149,13 @@
   </eSubpackages>
   <eSubpackages name="column" nsURI="http://ynn.org/sqlitedb/modeler/model/column"
       nsPrefix="org.ynn.sqlitedb.modeler.model">
-    <eClassifiers xsi:type="ecore:EClass" name="Column">
+    <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//common/NameProvider">
       <eStructuralFeatures xsi:type="ecore:EReference" name="table" lowerBound="1"
           eType="#//table/Table" eOpposite="#//table/Table/columns"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
           eType="#//column/DataType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
           eType="#//column/ColumnConstraint" containment="true" eOpposite="#//column/ColumnConstraint/column"/>
-      <eGenericSuperTypes eClassifier="#//common/NameProvider"/>
-      <eGenericSuperTypes eClassifier="#//common/PreviousVersionProvider">
-        <eTypeArguments eClassifier="#//column/Column"/>
-      </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="DataType">
       <eLiterals name="NULL"/>
