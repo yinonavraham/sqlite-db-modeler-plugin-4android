@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.ynn.sqlitedb.modeler.model
+Bundle-SymbolicName: org.ynn.sqlitedb.modeler.model; singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Require-Bundle: org.eclipse.emf.ecore
+Bundle-Vendor: YA Org.
