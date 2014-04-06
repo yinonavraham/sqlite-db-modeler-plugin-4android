@@ -3,35 +3,35 @@
 package org.ynn.sqlitedb.modeler.model.common.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EMap;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.ynn.sqlitedb.modeler.model.common.CommonPackage;
 import org.ynn.sqlitedb.modeler.model.common.MappingEntry;
 
+import org.ynn.sqlitedb.modeler.model.table.Table;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>String To Mapping Entry Map</b></em>'.
+ * An implementation of the model object '<em><b>String To Table Mapping Entry Map</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.ynn.sqlitedb.modeler.model.common.impl.StringToMappingEntryMapImpl#getTypedKey <em>Key</em>}</li>
- *   <li>{@link org.ynn.sqlitedb.modeler.model.common.impl.StringToMappingEntryMapImpl#getTypedValue <em>Value</em>}</li>
+ *   <li>{@link org.ynn.sqlitedb.modeler.model.common.impl.StringToTableMappingEntryMapImpl#getTypedKey <em>Key</em>}</li>
+ *   <li>{@link org.ynn.sqlitedb.modeler.model.common.impl.StringToTableMappingEntryMapImpl#getTypedValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class StringToMappingEntryMapImpl<T> extends MinimalEObjectImpl.Container implements BasicEMap.Entry<String,MappingEntry<T>> {
+public class StringToTableMappingEntryMapImpl extends MinimalEObjectImpl.Container implements BasicEMap.Entry<String,MappingEntry<Table>> {
 	/**
 	 * The default value of the '{@link #getTypedKey() <em>Key</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -41,7 +41,6 @@ public class StringToMappingEntryMapImpl<T> extends MinimalEObjectImpl.Container
 	 * @ordered
 	 */
 	protected static final String KEY_EDEFAULT = null;
-
 	/**
 	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -51,7 +50,6 @@ public class StringToMappingEntryMapImpl<T> extends MinimalEObjectImpl.Container
 	 * @ordered
 	 */
 	protected String key = KEY_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -60,14 +58,14 @@ public class StringToMappingEntryMapImpl<T> extends MinimalEObjectImpl.Container
 	 * @generated
 	 * @ordered
 	 */
-	protected MappingEntry<T> value;
+	protected MappingEntry<Table> value;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StringToMappingEntryMapImpl() {
+	protected StringToTableMappingEntryMapImpl() {
 		super();
 	}
 
@@ -78,7 +76,7 @@ public class StringToMappingEntryMapImpl<T> extends MinimalEObjectImpl.Container
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CommonPackage.Literals.STRING_TO_MAPPING_ENTRY_MAP;
+		return CommonPackage.Literals.STRING_TO_TABLE_MAPPING_ENTRY_MAP;
 	}
 
 	/**
@@ -99,7 +97,7 @@ public class StringToMappingEntryMapImpl<T> extends MinimalEObjectImpl.Container
 		String oldKey = key;
 		key = newKey;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.STRING_TO_MAPPING_ENTRY_MAP__KEY, oldKey, key));
+			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.STRING_TO_TABLE_MAPPING_ENTRY_MAP__KEY, oldKey, key));
 	}
 
 	/**
@@ -108,13 +106,13 @@ public class StringToMappingEntryMapImpl<T> extends MinimalEObjectImpl.Container
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public MappingEntry<T> getTypedValue() {
+	public MappingEntry<Table> getTypedValue() {
 		if (value != null && value.eIsProxy()) {
 			InternalEObject oldValue = (InternalEObject)value;
-			value = (MappingEntry<T>)eResolveProxy(oldValue);
+			value = (MappingEntry<Table>)eResolveProxy(oldValue);
 			if (value != oldValue) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CommonPackage.STRING_TO_MAPPING_ENTRY_MAP__VALUE, oldValue, value));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CommonPackage.STRING_TO_TABLE_MAPPING_ENTRY_MAP__VALUE, oldValue, value));
 			}
 		}
 		return value;
@@ -125,7 +123,7 @@ public class StringToMappingEntryMapImpl<T> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MappingEntry<T> basicGetTypedValue() {
+	public MappingEntry<Table> basicGetTypedValue() {
 		return value;
 	}
 
@@ -134,11 +132,11 @@ public class StringToMappingEntryMapImpl<T> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTypedValue(MappingEntry<T> newValue) {
-		MappingEntry<T> oldValue = value;
+	public void setTypedValue(MappingEntry<Table> newValue) {
+		MappingEntry<Table> oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.STRING_TO_MAPPING_ENTRY_MAP__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.STRING_TO_TABLE_MAPPING_ENTRY_MAP__VALUE, oldValue, value));
 	}
 
 	/**
@@ -149,9 +147,9 @@ public class StringToMappingEntryMapImpl<T> extends MinimalEObjectImpl.Container
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CommonPackage.STRING_TO_MAPPING_ENTRY_MAP__KEY:
+			case CommonPackage.STRING_TO_TABLE_MAPPING_ENTRY_MAP__KEY:
 				return getTypedKey();
-			case CommonPackage.STRING_TO_MAPPING_ENTRY_MAP__VALUE:
+			case CommonPackage.STRING_TO_TABLE_MAPPING_ENTRY_MAP__VALUE:
 				if (resolve) return getTypedValue();
 				return basicGetTypedValue();
 		}
@@ -167,11 +165,11 @@ public class StringToMappingEntryMapImpl<T> extends MinimalEObjectImpl.Container
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CommonPackage.STRING_TO_MAPPING_ENTRY_MAP__KEY:
+			case CommonPackage.STRING_TO_TABLE_MAPPING_ENTRY_MAP__KEY:
 				setTypedKey((String)newValue);
 				return;
-			case CommonPackage.STRING_TO_MAPPING_ENTRY_MAP__VALUE:
-				setTypedValue((MappingEntry<T>)newValue);
+			case CommonPackage.STRING_TO_TABLE_MAPPING_ENTRY_MAP__VALUE:
+				setTypedValue((MappingEntry<Table>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -185,11 +183,11 @@ public class StringToMappingEntryMapImpl<T> extends MinimalEObjectImpl.Container
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CommonPackage.STRING_TO_MAPPING_ENTRY_MAP__KEY:
+			case CommonPackage.STRING_TO_TABLE_MAPPING_ENTRY_MAP__KEY:
 				setTypedKey(KEY_EDEFAULT);
 				return;
-			case CommonPackage.STRING_TO_MAPPING_ENTRY_MAP__VALUE:
-				setTypedValue((MappingEntry<T>)null);
+			case CommonPackage.STRING_TO_TABLE_MAPPING_ENTRY_MAP__VALUE:
+				setTypedValue((MappingEntry<Table>)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -203,9 +201,9 @@ public class StringToMappingEntryMapImpl<T> extends MinimalEObjectImpl.Container
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CommonPackage.STRING_TO_MAPPING_ENTRY_MAP__KEY:
+			case CommonPackage.STRING_TO_TABLE_MAPPING_ENTRY_MAP__KEY:
 				return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
-			case CommonPackage.STRING_TO_MAPPING_ENTRY_MAP__VALUE:
+			case CommonPackage.STRING_TO_TABLE_MAPPING_ENTRY_MAP__VALUE:
 				return value != null;
 		}
 		return super.eIsSet(featureID);
@@ -279,7 +277,7 @@ public class StringToMappingEntryMapImpl<T> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MappingEntry<T> getValue() {
+	public MappingEntry<Table> getValue() {
 		return getTypedValue();
 	}
 
@@ -288,8 +286,8 @@ public class StringToMappingEntryMapImpl<T> extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MappingEntry<T> setValue(MappingEntry<T> value) {
-		MappingEntry<T> oldValue = getValue();
+	public MappingEntry<Table> setValue(MappingEntry<Table> value) {
+		MappingEntry<Table> oldValue = getValue();
 		setTypedValue(value);
 		return oldValue;
 	}
@@ -300,9 +298,9 @@ public class StringToMappingEntryMapImpl<T> extends MinimalEObjectImpl.Container
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EMap<String, MappingEntry<T>> getEMap() {
+	public EMap<String, MappingEntry<Table>> getEMap() {
 		EObject container = eContainer();
-		return container == null ? null : (EMap<String, MappingEntry<T>>)container.eGet(eContainmentFeature());
+		return container == null ? null : (EMap<String, MappingEntry<Table>>)container.eGet(eContainmentFeature());
 	}
 
-} //StringToMappingEntryMapImpl
+} //StringToTableMappingEntryMapImpl

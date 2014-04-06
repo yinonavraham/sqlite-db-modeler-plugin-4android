@@ -95,43 +95,6 @@ public interface CommonPackage extends EPackage {
 	int NAME_PROVIDER_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.ynn.sqlitedb.modeler.model.common.PreviousVersionProvider <em>Previous Version Provider</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.ynn.sqlitedb.modeler.model.common.PreviousVersionProvider
-	 * @see org.ynn.sqlitedb.modeler.model.common.impl.CommonPackageImpl#getPreviousVersionProvider()
-	 * @generated
-	 */
-	int PREVIOUS_VERSION_PROVIDER = 1;
-
-	/**
-	 * The feature id for the '<em><b>Previous Version</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PREVIOUS_VERSION_PROVIDER__PREVIOUS_VERSION = 0;
-
-	/**
-	 * The number of structural features of the '<em>Previous Version Provider</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PREVIOUS_VERSION_PROVIDER_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Previous Version Provider</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PREVIOUS_VERSION_PROVIDER_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.ynn.sqlitedb.modeler.model.common.impl.MappingImpl <em>Mapping</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -139,10 +102,10 @@ public interface CommonPackage extends EPackage {
 	 * @see org.ynn.sqlitedb.modeler.model.common.impl.CommonPackageImpl#getMapping()
 	 * @generated
 	 */
-	int MAPPING = 2;
+	int MAPPING = 1;
 
 	/**
-	 * The feature id for the '<em><b>Prev2entry Map</b></em>' map.
+	 * The feature id for the '<em><b>Prev2entry Map</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -151,7 +114,7 @@ public interface CommonPackage extends EPackage {
 	int MAPPING__PREV2ENTRY_MAP = 0;
 
 	/**
-	 * The feature id for the '<em><b>Curr2entry Map</b></em>' map.
+	 * The feature id for the '<em><b>Curr2entry Map</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -223,13 +186,22 @@ public interface CommonPackage extends EPackage {
 	int MAPPING___PUT__OBJECT_OBJECT = 4;
 
 	/**
+	 * The operation id for the '<em>Entries</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING___ENTRIES = 5;
+
+	/**
 	 * The number of operations of the '<em>Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING_OPERATION_COUNT = 5;
+	int MAPPING_OPERATION_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link org.ynn.sqlitedb.modeler.model.common.impl.MappingEntryImpl <em>Mapping Entry</em>}' class.
@@ -239,7 +211,7 @@ public interface CommonPackage extends EPackage {
 	 * @see org.ynn.sqlitedb.modeler.model.common.impl.CommonPackageImpl#getMappingEntry()
 	 * @generated
 	 */
-	int MAPPING_ENTRY = 3;
+	int MAPPING_ENTRY = 2;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' attribute.
@@ -278,14 +250,14 @@ public interface CommonPackage extends EPackage {
 	int MAPPING_ENTRY_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.ynn.sqlitedb.modeler.model.common.impl.StringToMappingEntryMapImpl <em>String To Mapping Entry Map</em>}' class.
+	 * The meta object id for the '{@link org.ynn.sqlitedb.modeler.model.common.impl.StringToTableMappingEntryMapImpl <em>String To Table Mapping Entry Map</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.ynn.sqlitedb.modeler.model.common.impl.StringToMappingEntryMapImpl
-	 * @see org.ynn.sqlitedb.modeler.model.common.impl.CommonPackageImpl#getStringToMappingEntryMap()
+	 * @see org.ynn.sqlitedb.modeler.model.common.impl.StringToTableMappingEntryMapImpl
+	 * @see org.ynn.sqlitedb.modeler.model.common.impl.CommonPackageImpl#getStringToTableMappingEntryMap()
 	 * @generated
 	 */
-	int STRING_TO_MAPPING_ENTRY_MAP = 4;
+	int STRING_TO_TABLE_MAPPING_ENTRY_MAP = 3;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -294,7 +266,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_TO_MAPPING_ENTRY_MAP__KEY = 0;
+	int STRING_TO_TABLE_MAPPING_ENTRY_MAP__KEY = 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' reference.
@@ -303,25 +275,71 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_TO_MAPPING_ENTRY_MAP__VALUE = 1;
+	int STRING_TO_TABLE_MAPPING_ENTRY_MAP__VALUE = 1;
 
 	/**
-	 * The number of structural features of the '<em>String To Mapping Entry Map</em>' class.
+	 * The number of structural features of the '<em>String To Table Mapping Entry Map</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_TO_MAPPING_ENTRY_MAP_FEATURE_COUNT = 2;
+	int STRING_TO_TABLE_MAPPING_ENTRY_MAP_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>String To Mapping Entry Map</em>' class.
+	 * The number of operations of the '<em>String To Table Mapping Entry Map</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_TO_MAPPING_ENTRY_MAP_OPERATION_COUNT = 0;
+	int STRING_TO_TABLE_MAPPING_ENTRY_MAP_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.ynn.sqlitedb.modeler.model.common.impl.StringToColumnMappingEntryMapImpl <em>String To Column Mapping Entry Map</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.ynn.sqlitedb.modeler.model.common.impl.StringToColumnMappingEntryMapImpl
+	 * @see org.ynn.sqlitedb.modeler.model.common.impl.CommonPackageImpl#getStringToColumnMappingEntryMap()
+	 * @generated
+	 */
+	int STRING_TO_COLUMN_MAPPING_ENTRY_MAP = 4;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_TO_COLUMN_MAPPING_ENTRY_MAP__KEY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_TO_COLUMN_MAPPING_ENTRY_MAP__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>String To Column Mapping Entry Map</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_TO_COLUMN_MAPPING_ENTRY_MAP_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>String To Column Mapping Entry Map</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_TO_COLUMN_MAPPING_ENTRY_MAP_OPERATION_COUNT = 0;
 
 
 	/**
@@ -346,27 +364,6 @@ public interface CommonPackage extends EPackage {
 	EAttribute getNameProvider_Name();
 
 	/**
-	 * Returns the meta object for class '{@link org.ynn.sqlitedb.modeler.model.common.PreviousVersionProvider <em>Previous Version Provider</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Previous Version Provider</em>'.
-	 * @see org.ynn.sqlitedb.modeler.model.common.PreviousVersionProvider
-	 * @generated
-	 */
-	EClass getPreviousVersionProvider();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.ynn.sqlitedb.modeler.model.common.PreviousVersionProvider#getPreviousVersion <em>Previous Version</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Previous Version</em>'.
-	 * @see org.ynn.sqlitedb.modeler.model.common.PreviousVersionProvider#getPreviousVersion()
-	 * @see #getPreviousVersionProvider()
-	 * @generated
-	 */
-	EReference getPreviousVersionProvider_PreviousVersion();
-
-	/**
 	 * Returns the meta object for class '{@link org.ynn.sqlitedb.modeler.model.common.Mapping <em>Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -377,21 +374,21 @@ public interface CommonPackage extends EPackage {
 	EClass getMapping();
 
 	/**
-	 * Returns the meta object for the map '{@link org.ynn.sqlitedb.modeler.model.common.Mapping#getPrev2entryMap <em>Prev2entry Map</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.ynn.sqlitedb.modeler.model.common.Mapping <em>Prev2entry Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the map '<em>Prev2entry Map</em>'.
-	 * @see org.ynn.sqlitedb.modeler.model.common.Mapping#getPrev2entryMap()
+	 * @return the meta object for the containment reference list '<em>Prev2entry Map</em>'.
+	 * @see org.ynn.sqlitedb.modeler.model.common.Mapping
 	 * @see #getMapping()
 	 * @generated
 	 */
 	EReference getMapping_Prev2entryMap();
 
 	/**
-	 * Returns the meta object for the map '{@link org.ynn.sqlitedb.modeler.model.common.Mapping#getCurr2entryMap <em>Curr2entry Map</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.ynn.sqlitedb.modeler.model.common.Mapping#getCurr2entryMap <em>Curr2entry Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the map '<em>Curr2entry Map</em>'.
+	 * @return the meta object for the containment reference list '<em>Curr2entry Map</em>'.
 	 * @see org.ynn.sqlitedb.modeler.model.common.Mapping#getCurr2entryMap()
 	 * @see #getMapping()
 	 * @generated
@@ -399,11 +396,11 @@ public interface CommonPackage extends EPackage {
 	EReference getMapping_Curr2entryMap();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.ynn.sqlitedb.modeler.model.common.Mapping#getEntries <em>Entries</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.ynn.sqlitedb.modeler.model.common.Mapping <em>Entries</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Entries</em>'.
-	 * @see org.ynn.sqlitedb.modeler.model.common.Mapping#getEntries()
+	 * @see org.ynn.sqlitedb.modeler.model.common.Mapping
 	 * @see #getMapping()
 	 * @generated
 	 */
@@ -460,6 +457,16 @@ public interface CommonPackage extends EPackage {
 	EOperation getMapping__Put__Object_Object();
 
 	/**
+	 * Returns the meta object for the '{@link org.ynn.sqlitedb.modeler.model.common.Mapping#entries() <em>Entries</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Entries</em>' operation.
+	 * @see org.ynn.sqlitedb.modeler.model.common.Mapping#entries()
+	 * @generated
+	 */
+	EOperation getMapping__Entries();
+
+	/**
 	 * Returns the meta object for class '{@link org.ynn.sqlitedb.modeler.model.common.MappingEntry <em>Mapping Entry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -492,16 +499,16 @@ public interface CommonPackage extends EPackage {
 	EAttribute getMappingEntry_Current();
 
 	/**
-	 * Returns the meta object for class '{@link java.util.Map.Entry <em>String To Mapping Entry Map</em>}'.
+	 * Returns the meta object for class '{@link java.util.Map.Entry <em>String To Table Mapping Entry Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>String To Mapping Entry Map</em>'.
+	 * @return the meta object for class '<em>String To Table Mapping Entry Map</em>'.
 	 * @see java.util.Map.Entry
 	 * @model keyDataType="org.eclipse.emf.ecore.EString" keyRequired="true"
-	 *        valueType="org.ynn.sqlitedb.modeler.model.common.MappingEntry<T>" valueRequired="true"
+	 *        valueType="org.ynn.sqlitedb.modeler.model.common.MappingEntry<org.ynn.sqlitedb.modeler.model.table.Table>" valueRequired="true"
 	 * @generated
 	 */
-	EClass getStringToMappingEntryMap();
+	EClass getStringToTableMappingEntryMap();
 
 	/**
 	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'.
@@ -509,10 +516,10 @@ public interface CommonPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Key</em>'.
 	 * @see java.util.Map.Entry
-	 * @see #getStringToMappingEntryMap()
+	 * @see #getStringToTableMappingEntryMap()
 	 * @generated
 	 */
-	EAttribute getStringToMappingEntryMap_Key();
+	EAttribute getStringToTableMappingEntryMap_Key();
 
 	/**
 	 * Returns the meta object for the reference '{@link java.util.Map.Entry <em>Value</em>}'.
@@ -520,10 +527,44 @@ public interface CommonPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Value</em>'.
 	 * @see java.util.Map.Entry
-	 * @see #getStringToMappingEntryMap()
+	 * @see #getStringToTableMappingEntryMap()
 	 * @generated
 	 */
-	EReference getStringToMappingEntryMap_Value();
+	EReference getStringToTableMappingEntryMap_Value();
+
+	/**
+	 * Returns the meta object for class '{@link java.util.Map.Entry <em>String To Column Mapping Entry Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>String To Column Mapping Entry Map</em>'.
+	 * @see java.util.Map.Entry
+	 * @model keyDataType="org.eclipse.emf.ecore.EString" keyRequired="true"
+	 *        valueType="org.ynn.sqlitedb.modeler.model.common.MappingEntry<org.ynn.sqlitedb.modeler.model.column.Column>" valueRequired="true"
+	 * @generated
+	 */
+	EClass getStringToColumnMappingEntryMap();
+
+	/**
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getStringToColumnMappingEntryMap()
+	 * @generated
+	 */
+	EAttribute getStringToColumnMappingEntryMap_Key();
+
+	/**
+	 * Returns the meta object for the reference '{@link java.util.Map.Entry <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Value</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getStringToColumnMappingEntryMap()
+	 * @generated
+	 */
+	EReference getStringToColumnMappingEntryMap_Value();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -567,24 +608,6 @@ public interface CommonPackage extends EPackage {
 		EAttribute NAME_PROVIDER__NAME = eINSTANCE.getNameProvider_Name();
 
 		/**
-		 * The meta object literal for the '{@link org.ynn.sqlitedb.modeler.model.common.PreviousVersionProvider <em>Previous Version Provider</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.ynn.sqlitedb.modeler.model.common.PreviousVersionProvider
-		 * @see org.ynn.sqlitedb.modeler.model.common.impl.CommonPackageImpl#getPreviousVersionProvider()
-		 * @generated
-		 */
-		EClass PREVIOUS_VERSION_PROVIDER = eINSTANCE.getPreviousVersionProvider();
-
-		/**
-		 * The meta object literal for the '<em><b>Previous Version</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PREVIOUS_VERSION_PROVIDER__PREVIOUS_VERSION = eINSTANCE.getPreviousVersionProvider_PreviousVersion();
-
-		/**
 		 * The meta object literal for the '{@link org.ynn.sqlitedb.modeler.model.common.impl.MappingImpl <em>Mapping</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -595,7 +618,7 @@ public interface CommonPackage extends EPackage {
 		EClass MAPPING = eINSTANCE.getMapping();
 
 		/**
-		 * The meta object literal for the '<em><b>Prev2entry Map</b></em>' map feature.
+		 * The meta object literal for the '<em><b>Prev2entry Map</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -603,7 +626,7 @@ public interface CommonPackage extends EPackage {
 		EReference MAPPING__PREV2ENTRY_MAP = eINSTANCE.getMapping_Prev2entryMap();
 
 		/**
-		 * The meta object literal for the '<em><b>Curr2entry Map</b></em>' map feature.
+		 * The meta object literal for the '<em><b>Curr2entry Map</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -659,6 +682,14 @@ public interface CommonPackage extends EPackage {
 		EOperation MAPPING___PUT__OBJECT_OBJECT = eINSTANCE.getMapping__Put__Object_Object();
 
 		/**
+		 * The meta object literal for the '<em><b>Entries</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MAPPING___ENTRIES = eINSTANCE.getMapping__Entries();
+
+		/**
 		 * The meta object literal for the '{@link org.ynn.sqlitedb.modeler.model.common.impl.MappingEntryImpl <em>Mapping Entry</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -685,14 +716,14 @@ public interface CommonPackage extends EPackage {
 		EAttribute MAPPING_ENTRY__CURRENT = eINSTANCE.getMappingEntry_Current();
 
 		/**
-		 * The meta object literal for the '{@link org.ynn.sqlitedb.modeler.model.common.impl.StringToMappingEntryMapImpl <em>String To Mapping Entry Map</em>}' class.
+		 * The meta object literal for the '{@link org.ynn.sqlitedb.modeler.model.common.impl.StringToTableMappingEntryMapImpl <em>String To Table Mapping Entry Map</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.ynn.sqlitedb.modeler.model.common.impl.StringToMappingEntryMapImpl
-		 * @see org.ynn.sqlitedb.modeler.model.common.impl.CommonPackageImpl#getStringToMappingEntryMap()
+		 * @see org.ynn.sqlitedb.modeler.model.common.impl.StringToTableMappingEntryMapImpl
+		 * @see org.ynn.sqlitedb.modeler.model.common.impl.CommonPackageImpl#getStringToTableMappingEntryMap()
 		 * @generated
 		 */
-		EClass STRING_TO_MAPPING_ENTRY_MAP = eINSTANCE.getStringToMappingEntryMap();
+		EClass STRING_TO_TABLE_MAPPING_ENTRY_MAP = eINSTANCE.getStringToTableMappingEntryMap();
 
 		/**
 		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
@@ -700,7 +731,7 @@ public interface CommonPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute STRING_TO_MAPPING_ENTRY_MAP__KEY = eINSTANCE.getStringToMappingEntryMap_Key();
+		EAttribute STRING_TO_TABLE_MAPPING_ENTRY_MAP__KEY = eINSTANCE.getStringToTableMappingEntryMap_Key();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' reference feature.
@@ -708,7 +739,33 @@ public interface CommonPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STRING_TO_MAPPING_ENTRY_MAP__VALUE = eINSTANCE.getStringToMappingEntryMap_Value();
+		EReference STRING_TO_TABLE_MAPPING_ENTRY_MAP__VALUE = eINSTANCE.getStringToTableMappingEntryMap_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.ynn.sqlitedb.modeler.model.common.impl.StringToColumnMappingEntryMapImpl <em>String To Column Mapping Entry Map</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.ynn.sqlitedb.modeler.model.common.impl.StringToColumnMappingEntryMapImpl
+		 * @see org.ynn.sqlitedb.modeler.model.common.impl.CommonPackageImpl#getStringToColumnMappingEntryMap()
+		 * @generated
+		 */
+		EClass STRING_TO_COLUMN_MAPPING_ENTRY_MAP = eINSTANCE.getStringToColumnMappingEntryMap();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRING_TO_COLUMN_MAPPING_ENTRY_MAP__KEY = eINSTANCE.getStringToColumnMappingEntryMap_Key();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STRING_TO_COLUMN_MAPPING_ENTRY_MAP__VALUE = eINSTANCE.getStringToColumnMappingEntryMap_Value();
 
 	}
 

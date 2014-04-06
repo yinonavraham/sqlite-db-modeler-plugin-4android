@@ -6,8 +6,14 @@ import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.util.Switch;
+
+import org.ynn.sqlitedb.modeler.model.column.Column;
+
 import org.ynn.sqlitedb.modeler.model.common.*;
+
+import org.ynn.sqlitedb.modeler.model.table.Table;
 
 /**
  * <!-- begin-user-doc -->
@@ -73,7 +79,7 @@ public class CommonSwitch<T1> extends Switch<T1> {
 				return result;
 			}
 			case CommonPackage.MAPPING: {
-				Mapping<?> mapping = (Mapping<?>)theEObject;
+				Mapping<?, ?> mapping = (Mapping<?, ?>)theEObject;
 				T1 result = caseMapping(mapping);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -84,9 +90,15 @@ public class CommonSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.STRING_TO_MAPPING_ENTRY_MAP: {
-				@SuppressWarnings("unchecked") Map.Entry<String,MappingEntry<?>> stringToMappingEntryMap = (Map.Entry<String,MappingEntry<?>>)theEObject;
-				T1 result = caseStringToMappingEntryMap(stringToMappingEntryMap);
+			case CommonPackage.STRING_TO_TABLE_MAPPING_ENTRY_MAP: {
+				@SuppressWarnings("unchecked") Map.Entry<String, MappingEntry<Table>> stringToTableMappingEntryMap = (Map.Entry<String, MappingEntry<Table>>)theEObject;
+				T1 result = caseStringToTableMappingEntryMap(stringToTableMappingEntryMap);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CommonPackage.STRING_TO_COLUMN_MAPPING_ENTRY_MAP: {
+				@SuppressWarnings("unchecked") Map.Entry<String, MappingEntry<Column>> stringToColumnMappingEntryMap = (Map.Entry<String, MappingEntry<Column>>)theEObject;
+				T1 result = caseStringToColumnMappingEntryMap(stringToColumnMappingEntryMap);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -120,7 +132,7 @@ public class CommonSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T> T1 caseMapping(Mapping<T> object) {
+	public <T, TMap> T1 caseMapping(Mapping<T, TMap> object) {
 		return null;
 	}
 
@@ -140,17 +152,32 @@ public class CommonSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>String To Mapping Entry Map</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>String To Table Mapping Entry Map</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>String To Mapping Entry Map</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>String To Table Mapping Entry Map</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T> T1 caseStringToMappingEntryMap(Map.Entry<String,MappingEntry<?>> object) {
+	public T1 caseStringToTableMappingEntryMap(Map.Entry<String, MappingEntry<Table>> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>String To Column Mapping Entry Map</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>String To Column Mapping Entry Map</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStringToColumnMappingEntryMap(Map.Entry<String, MappingEntry<Column>> object) {
 		return null;
 	}
 

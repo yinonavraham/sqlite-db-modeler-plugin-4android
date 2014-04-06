@@ -2,6 +2,7 @@
  */
 package org.ynn.sqlitedb.modeler.model.impl;
 
+import java.util.Map.Entry;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -77,7 +78,7 @@ public class DatabaseVersionImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 * @ordered
 	 */
-	protected Mapping<Table> tableMapping;
+	protected Mapping<Table, Entry> tableMapping;
 
 	/**
 	 * The cached value of the '{@link #getColumnMapping() <em>Column Mapping</em>}' containment reference.
@@ -87,7 +88,7 @@ public class DatabaseVersionImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 * @ordered
 	 */
-	protected Mapping<Column> columnMapping;
+	protected Mapping<Column, Entry> columnMapping;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -276,8 +277,7 @@ public class DatabaseVersionImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	public Mapping<Table> getTableMapping() {
+	public Mapping<Table, Entry> getTableMapping() {
 		return tableMapping;
 	}
 
@@ -286,8 +286,8 @@ public class DatabaseVersionImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTableMapping(Mapping<Table> newTableMapping, NotificationChain msgs) {
-		Mapping<Table> oldTableMapping = tableMapping;
+	public NotificationChain basicSetTableMapping(Mapping<Table, Entry> newTableMapping, NotificationChain msgs) {
+		Mapping<Table, Entry> oldTableMapping = tableMapping;
 		tableMapping = newTableMapping;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.DATABASE_VERSION__TABLE_MAPPING, oldTableMapping, newTableMapping);
@@ -301,7 +301,7 @@ public class DatabaseVersionImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTableMapping(Mapping<Table> newTableMapping) {
+	public void setTableMapping(Mapping<Table, Entry> newTableMapping) {
 		if (newTableMapping != tableMapping) {
 			NotificationChain msgs = null;
 			if (tableMapping != null)
@@ -320,8 +320,7 @@ public class DatabaseVersionImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	public Mapping<Column> getColumnMapping() {
+	public Mapping<Column, Entry> getColumnMapping() {
 		return columnMapping;
 	}
 
@@ -330,8 +329,8 @@ public class DatabaseVersionImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetColumnMapping(Mapping<Column> newColumnMapping, NotificationChain msgs) {
-		Mapping<Column> oldColumnMapping = columnMapping;
+	public NotificationChain basicSetColumnMapping(Mapping<Column, Entry> newColumnMapping, NotificationChain msgs) {
+		Mapping<Column, Entry> oldColumnMapping = columnMapping;
 		columnMapping = newColumnMapping;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.DATABASE_VERSION__COLUMN_MAPPING, oldColumnMapping, newColumnMapping);
@@ -345,7 +344,7 @@ public class DatabaseVersionImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setColumnMapping(Mapping<Column> newColumnMapping) {
+	public void setColumnMapping(Mapping<Column, Entry> newColumnMapping) {
 		if (newColumnMapping != columnMapping) {
 			NotificationChain msgs = null;
 			if (columnMapping != null)
@@ -444,10 +443,10 @@ public class DatabaseVersionImpl extends MinimalEObjectImpl.Container implements
 				setNextVersion((DatabaseVersion)newValue);
 				return;
 			case ModelPackage.DATABASE_VERSION__TABLE_MAPPING:
-				setTableMapping((Mapping<Table>)newValue);
+				setTableMapping((Mapping<Table, Entry>)newValue);
 				return;
 			case ModelPackage.DATABASE_VERSION__COLUMN_MAPPING:
-				setColumnMapping((Mapping<Column>)newValue);
+				setColumnMapping((Mapping<Column, Entry>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -471,10 +470,10 @@ public class DatabaseVersionImpl extends MinimalEObjectImpl.Container implements
 				setNextVersion((DatabaseVersion)null);
 				return;
 			case ModelPackage.DATABASE_VERSION__TABLE_MAPPING:
-				setTableMapping((Mapping<Table>)null);
+				setTableMapping((Mapping<Table, Entry>)null);
 				return;
 			case ModelPackage.DATABASE_VERSION__COLUMN_MAPPING:
-				setColumnMapping((Mapping<Column>)null);
+				setColumnMapping((Mapping<Column, Entry>)null);
 				return;
 		}
 		super.eUnset(featureID);

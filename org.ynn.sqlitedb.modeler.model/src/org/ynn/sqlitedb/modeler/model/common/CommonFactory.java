@@ -28,7 +28,7 @@ public interface CommonFactory extends EFactory {
 	 * @return a new object of class '<em>Mapping</em>'.
 	 * @generated
 	 */
-	<T> Mapping<T> createMapping();
+	<T, TMap> Mapping<T, TMap> createMapping();
 
 	/**
 	 * Returns a new object of class '<em>Mapping Entry</em>'.

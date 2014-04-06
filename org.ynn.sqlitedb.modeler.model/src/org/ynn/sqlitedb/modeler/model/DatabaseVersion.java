@@ -2,6 +2,7 @@
  */
 package org.ynn.sqlitedb.modeler.model;
 
+import java.util.Map.Entry;
 import org.eclipse.emf.ecore.EObject;
 
 import org.ynn.sqlitedb.modeler.model.column.Column;
@@ -124,10 +125,10 @@ public interface DatabaseVersion extends EObject {
 	 * @return the value of the '<em>Table Mapping</em>' containment reference.
 	 * @see #setTableMapping(Mapping)
 	 * @see org.ynn.sqlitedb.modeler.model.ModelPackage#getDatabaseVersion_TableMapping()
-	 * @model containment="true"
+	 * @model type="org.ynn.sqlitedb.modeler.model.common.Mapping<org.ynn.sqlitedb.modeler.model.table.Table, org.ynn.sqlitedb.modeler.model.common.StringToTableMappingEntryMap>" containment="true"
 	 * @generated
 	 */
-	Mapping<Table> getTableMapping();
+	Mapping<Table, Entry> getTableMapping();
 
 	/**
 	 * Sets the value of the '{@link org.ynn.sqlitedb.modeler.model.DatabaseVersion#getTableMapping <em>Table Mapping</em>}' containment reference.
@@ -137,7 +138,7 @@ public interface DatabaseVersion extends EObject {
 	 * @see #getTableMapping()
 	 * @generated
 	 */
-	void setTableMapping(Mapping<Table> value);
+	void setTableMapping(Mapping<Table, Entry> value);
 
 	/**
 	 * Returns the value of the '<em><b>Column Mapping</b></em>' containment reference.
@@ -150,10 +151,10 @@ public interface DatabaseVersion extends EObject {
 	 * @return the value of the '<em>Column Mapping</em>' containment reference.
 	 * @see #setColumnMapping(Mapping)
 	 * @see org.ynn.sqlitedb.modeler.model.ModelPackage#getDatabaseVersion_ColumnMapping()
-	 * @model containment="true"
+	 * @model type="org.ynn.sqlitedb.modeler.model.common.Mapping<org.ynn.sqlitedb.modeler.model.column.Column, org.ynn.sqlitedb.modeler.model.common.StringToColumnMappingEntryMap>" containment="true"
 	 * @generated
 	 */
-	Mapping<Column> getColumnMapping();
+	Mapping<Column, Entry> getColumnMapping();
 
 	/**
 	 * Sets the value of the '{@link org.ynn.sqlitedb.modeler.model.DatabaseVersion#getColumnMapping <em>Column Mapping</em>}' containment reference.
@@ -163,6 +164,6 @@ public interface DatabaseVersion extends EObject {
 	 * @see #getColumnMapping()
 	 * @generated
 	 */
-	void setColumnMapping(Mapping<Column> value);
+	void setColumnMapping(Mapping<Column, Entry> value);
 
 } // DatabaseVersion

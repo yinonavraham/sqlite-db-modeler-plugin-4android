@@ -3,24 +3,15 @@
 package org.ynn.sqlitedb.modeler.model.common.impl;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.EMap;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.ynn.sqlitedb.modeler.model.common.CommonPackage;
 import org.ynn.sqlitedb.modeler.model.common.Mapping;
 import org.ynn.sqlitedb.modeler.model.common.MappingEntry;
@@ -40,26 +31,26 @@ import org.ynn.sqlitedb.modeler.model.common.MappingEntry;
  *
  * @generated
  */
-public class MappingImpl<T> extends MinimalEObjectImpl.Container implements Mapping<T> {
+public class MappingImpl<T, TMap> extends MinimalEObjectImpl.Container implements Mapping<T, TMap> {
 	/**
-	 * The cached value of the '{@link #getPrev2entryMap() <em>Prev2entry Map</em>}' map.
+	 * The cached value of the '{@link #getPrev2entryMap() <em>Prev2entry Map</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPrev2entryMap()
 	 * @generated
 	 * @ordered
 	 */
-	protected EMap<String, MappingEntry<T>> prev2entryMap;
+	protected EList<TMap> prev2entryMap;
 
 	/**
-	 * The cached value of the '{@link #getCurr2entryMap() <em>Curr2entry Map</em>}' map.
+	 * The cached value of the '{@link #getCurr2entryMap() <em>Curr2entry Map</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCurr2entryMap()
 	 * @generated
 	 * @ordered
 	 */
-	protected EMap<String, MappingEntry<T>> curr2entryMap;
+	protected EList<TMap> curr2entryMap;
 
 	/**
 	 * The cached value of the '{@link #getEntries() <em>Entries</em>}' containment reference list.
@@ -95,9 +86,9 @@ public class MappingImpl<T> extends MinimalEObjectImpl.Container implements Mapp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EMap<String, MappingEntry<T>> getPrev2entryMap() {
+	public EList<TMap> getPrev2entryMap() {
 		if (prev2entryMap == null) {
-			prev2entryMap = new EcoreEMap<String,MappingEntry<T>>(CommonPackage.Literals.STRING_TO_MAPPING_ENTRY_MAP, StringToMappingEntryMapImpl.class, this, CommonPackage.MAPPING__PREV2ENTRY_MAP);
+			prev2entryMap = new EObjectContainmentEList<TMap>(EObject.class, this, CommonPackage.MAPPING__PREV2ENTRY_MAP);
 		}
 		return prev2entryMap;
 	}
@@ -107,9 +98,9 @@ public class MappingImpl<T> extends MinimalEObjectImpl.Container implements Mapp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EMap<String, MappingEntry<T>> getCurr2entryMap() {
+	public EList<TMap> getCurr2entryMap() {
 		if (curr2entryMap == null) {
-			curr2entryMap = new EcoreEMap<String,MappingEntry<T>>(CommonPackage.Literals.STRING_TO_MAPPING_ENTRY_MAP, StringToMappingEntryMapImpl.class, this, CommonPackage.MAPPING__CURR2ENTRY_MAP);
+			curr2entryMap = new EObjectContainmentEList<TMap>(EObject.class, this, CommonPackage.MAPPING__CURR2ENTRY_MAP);
 		}
 		return curr2entryMap;
 	}
@@ -186,6 +177,17 @@ public class MappingImpl<T> extends MinimalEObjectImpl.Container implements Mapp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<MappingEntry<T>> entries() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -208,11 +210,9 @@ public class MappingImpl<T> extends MinimalEObjectImpl.Container implements Mapp
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CommonPackage.MAPPING__PREV2ENTRY_MAP:
-				if (coreType) return getPrev2entryMap();
-				else return getPrev2entryMap().map();
+				return getPrev2entryMap();
 			case CommonPackage.MAPPING__CURR2ENTRY_MAP:
-				if (coreType) return getCurr2entryMap();
-				else return getCurr2entryMap().map();
+				return getCurr2entryMap();
 			case CommonPackage.MAPPING__ENTRIES:
 				return getEntries();
 		}
@@ -229,10 +229,12 @@ public class MappingImpl<T> extends MinimalEObjectImpl.Container implements Mapp
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CommonPackage.MAPPING__PREV2ENTRY_MAP:
-				((EStructuralFeature.Setting)getPrev2entryMap()).set(newValue);
+				getPrev2entryMap().clear();
+				getPrev2entryMap().addAll((Collection<? extends TMap>)newValue);
 				return;
 			case CommonPackage.MAPPING__CURR2ENTRY_MAP:
-				((EStructuralFeature.Setting)getCurr2entryMap()).set(newValue);
+				getCurr2entryMap().clear();
+				getCurr2entryMap().addAll((Collection<? extends TMap>)newValue);
 				return;
 			case CommonPackage.MAPPING__ENTRIES:
 				getEntries().clear();
@@ -300,6 +302,8 @@ public class MappingImpl<T> extends MinimalEObjectImpl.Container implements Mapp
 			case CommonPackage.MAPPING___PUT__OBJECT_OBJECT:
 				put((T)arguments.get(0), (T)arguments.get(1));
 				return null;
+			case CommonPackage.MAPPING___ENTRIES:
+				return entries();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

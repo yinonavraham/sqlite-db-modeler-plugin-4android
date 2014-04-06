@@ -436,9 +436,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		EGenericType g1 = createEGenericType(theCommonPackage.getMapping());
 		EGenericType g2 = createEGenericType(theTablePackage.getTable());
 		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(theCommonPackage.getStringToTableMappingEntryMap());
+		g1.getETypeArguments().add(g2);
 		initEReference(getDatabaseVersion_TableMapping(), g1, null, "tableMapping", null, 0, 1, DatabaseVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(theCommonPackage.getMapping());
 		g2 = createEGenericType(theColumnPackage.getColumn());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(theCommonPackage.getStringToColumnMappingEntryMap());
 		g1.getETypeArguments().add(g2);
 		initEReference(getDatabaseVersion_ColumnMapping(), g1, null, "columnMapping", null, 0, 1, DatabaseVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

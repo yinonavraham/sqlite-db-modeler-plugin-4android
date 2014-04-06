@@ -51,13 +51,6 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass previousVersionProviderEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass mappingEClass = null;
 
 	/**
@@ -72,7 +65,14 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass stringToMappingEntryMapEClass = null;
+	private EClass stringToTableMappingEntryMapEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stringToColumnMappingEntryMapEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -181,24 +181,6 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPreviousVersionProvider() {
-		return previousVersionProviderEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPreviousVersionProvider_PreviousVersion() {
-		return (EReference)previousVersionProviderEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getMapping() {
 		return mappingEClass;
 	}
@@ -280,6 +262,15 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getMapping__Entries() {
+		return mappingEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMappingEntry() {
 		return mappingEntryEClass;
 	}
@@ -307,8 +298,8 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getStringToMappingEntryMap() {
-		return stringToMappingEntryMapEClass;
+	public EClass getStringToTableMappingEntryMap() {
+		return stringToTableMappingEntryMapEClass;
 	}
 
 	/**
@@ -316,8 +307,8 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStringToMappingEntryMap_Key() {
-		return (EAttribute)stringToMappingEntryMapEClass.getEStructuralFeatures().get(0);
+	public EAttribute getStringToTableMappingEntryMap_Key() {
+		return (EAttribute)stringToTableMappingEntryMapEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -325,8 +316,35 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getStringToMappingEntryMap_Value() {
-		return (EReference)stringToMappingEntryMapEClass.getEStructuralFeatures().get(1);
+	public EReference getStringToTableMappingEntryMap_Value() {
+		return (EReference)stringToTableMappingEntryMapEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStringToColumnMappingEntryMap() {
+		return stringToColumnMappingEntryMapEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStringToColumnMappingEntryMap_Key() {
+		return (EAttribute)stringToColumnMappingEntryMapEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStringToColumnMappingEntryMap_Value() {
+		return (EReference)stringToColumnMappingEntryMapEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -360,9 +378,6 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		nameProviderEClass = createEClass(NAME_PROVIDER);
 		createEAttribute(nameProviderEClass, NAME_PROVIDER__NAME);
 
-		previousVersionProviderEClass = createEClass(PREVIOUS_VERSION_PROVIDER);
-		createEReference(previousVersionProviderEClass, PREVIOUS_VERSION_PROVIDER__PREVIOUS_VERSION);
-
 		mappingEClass = createEClass(MAPPING);
 		createEReference(mappingEClass, MAPPING__PREV2ENTRY_MAP);
 		createEReference(mappingEClass, MAPPING__CURR2ENTRY_MAP);
@@ -372,14 +387,19 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		createEOperation(mappingEClass, MAPPING___GET_CURRENT__OBJECT);
 		createEOperation(mappingEClass, MAPPING___GET_ALL_CURRENT);
 		createEOperation(mappingEClass, MAPPING___PUT__OBJECT_OBJECT);
+		createEOperation(mappingEClass, MAPPING___ENTRIES);
 
 		mappingEntryEClass = createEClass(MAPPING_ENTRY);
 		createEAttribute(mappingEntryEClass, MAPPING_ENTRY__PREVIOUS);
 		createEAttribute(mappingEntryEClass, MAPPING_ENTRY__CURRENT);
 
-		stringToMappingEntryMapEClass = createEClass(STRING_TO_MAPPING_ENTRY_MAP);
-		createEAttribute(stringToMappingEntryMapEClass, STRING_TO_MAPPING_ENTRY_MAP__KEY);
-		createEReference(stringToMappingEntryMapEClass, STRING_TO_MAPPING_ENTRY_MAP__VALUE);
+		stringToTableMappingEntryMapEClass = createEClass(STRING_TO_TABLE_MAPPING_ENTRY_MAP);
+		createEAttribute(stringToTableMappingEntryMapEClass, STRING_TO_TABLE_MAPPING_ENTRY_MAP__KEY);
+		createEReference(stringToTableMappingEntryMapEClass, STRING_TO_TABLE_MAPPING_ENTRY_MAP__VALUE);
+
+		stringToColumnMappingEntryMapEClass = createEClass(STRING_TO_COLUMN_MAPPING_ENTRY_MAP);
+		createEAttribute(stringToColumnMappingEntryMapEClass, STRING_TO_COLUMN_MAPPING_ENTRY_MAP__KEY);
+		createEReference(stringToColumnMappingEntryMapEClass, STRING_TO_COLUMN_MAPPING_ENTRY_MAP__VALUE);
 	}
 
 	/**
@@ -405,10 +425,14 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		TablePackage theTablePackage = (TablePackage)EPackage.Registry.INSTANCE.getEPackage(TablePackage.eNS_URI);
+		ColumnPackage theColumnPackage = (ColumnPackage)EPackage.Registry.INSTANCE.getEPackage(ColumnPackage.eNS_URI);
+
 		// Create type parameters
 		ETypeParameter mappingEClass_T = addETypeParameter(mappingEClass, "T");
+		ETypeParameter mappingEClass_TMap = addETypeParameter(mappingEClass, "TMap");
 		ETypeParameter mappingEntryEClass_T = addETypeParameter(mappingEntryEClass, "T");
-		ETypeParameter stringToMappingEntryMapEClass_T = addETypeParameter(stringToMappingEntryMapEClass, "T");
 
 		// Set bounds for type parameters
 
@@ -419,16 +443,12 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		initEAttribute(getNameProvider_Name(), ecorePackage.getEString(), "name", null, 1, 1, NameProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mappingEClass, Mapping.class, "Mapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		EGenericType g1 = createEGenericType(this.getStringToMappingEntryMap());
-		EGenericType g2 = createEGenericType(mappingEClass_T);
-		g1.getETypeArguments().add(g2);
+		EGenericType g1 = createEGenericType(mappingEClass_TMap);
 		initEReference(getMapping_Prev2entryMap(), g1, null, "prev2entryMap", null, 0, -1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(this.getStringToMappingEntryMap());
-		g2 = createEGenericType(mappingEClass_T);
-		g1.getETypeArguments().add(g2);
+		g1 = createEGenericType(mappingEClass_TMap);
 		initEReference(getMapping_Curr2entryMap(), g1, null, "curr2entryMap", null, 0, -1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(this.getMappingEntry());
-		g2 = createEGenericType(mappingEClass_T);
+		EGenericType g2 = createEGenericType(mappingEClass_T);
 		g1.getETypeArguments().add(g2);
 		initEReference(getMapping_Entries(), g1, null, "entries", null, 0, -1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -458,18 +478,31 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		g1 = createEGenericType(mappingEClass_T);
 		addEParameter(op, g1, "current", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getMapping__Entries(), null, "entries", 0, -1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getMappingEntry());
+		g2 = createEGenericType(mappingEClass_T);
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
 		initEClass(mappingEntryEClass, MappingEntry.class, "MappingEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(mappingEntryEClass_T);
 		initEAttribute(getMappingEntry_Previous(), g1, "previous", null, 0, 1, MappingEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(mappingEntryEClass_T);
 		initEAttribute(getMappingEntry_Current(), g1, "current", null, 0, 1, MappingEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(stringToMappingEntryMapEClass, Map.Entry.class, "StringToMappingEntryMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStringToMappingEntryMap_Key(), ecorePackage.getEString(), "key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(stringToTableMappingEntryMapEClass, Map.Entry.class, "StringToTableMappingEntryMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStringToTableMappingEntryMap_Key(), ecorePackage.getEString(), "key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(this.getMappingEntry());
-		g2 = createEGenericType(stringToMappingEntryMapEClass_T);
+		g2 = createEGenericType(theTablePackage.getTable());
 		g1.getETypeArguments().add(g2);
-		initEReference(getStringToMappingEntryMap_Value(), g1, null, "value", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStringToTableMappingEntryMap_Value(), g1, null, "value", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(stringToColumnMappingEntryMapEClass, Map.Entry.class, "StringToColumnMappingEntryMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStringToColumnMappingEntryMap_Key(), ecorePackage.getEString(), "key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getMappingEntry());
+		g2 = createEGenericType(theColumnPackage.getColumn());
+		g1.getETypeArguments().add(g2);
+		initEReference(getStringToColumnMappingEntryMap_Value(), g1, null, "value", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 
 } //CommonPackageImpl

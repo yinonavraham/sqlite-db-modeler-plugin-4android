@@ -3,8 +3,6 @@
 package org.ynn.sqlitedb.modeler.model.common;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.EMap;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,66 +13,32 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.ynn.sqlitedb.modeler.model.common.Mapping#getPrev2entryMap <em>Prev2entry Map</em>}</li>
  *   <li>{@link org.ynn.sqlitedb.modeler.model.common.Mapping#getCurr2entryMap <em>Curr2entry Map</em>}</li>
- *   <li>{@link org.ynn.sqlitedb.modeler.model.common.Mapping#getEntries <em>Entries</em>}</li>
  * </ul>
  * </p>
  *
  * @see org.ynn.sqlitedb.modeler.model.common.CommonPackage#getMapping()
- * @model
+ * @model features="prev2entryMap entries" 
+ *        prev2entryMapKind="reference" prev2entryMapType="TMap" prev2entryMapContainment="true" prev2entryMapMany="true" prev2entryMapSuppressedGetVisibility="true"
+ *        entriesType="org.ynn.sqlitedb.modeler.model.common.MappingEntry<T>" entriesContainment="true" entriesMany="true" entriesSuppressedGetVisibility="true"
  * @generated
  */
-public interface Mapping<T> extends EObject {
+public interface Mapping<T, TMap> extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Prev2entry Map</b></em>' map.
-	 * The key is of type {@link java.lang.String},
-	 * and the value is of type {@link org.ynn.sqlitedb.modeler.model.common.MappingEntry<T>},
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Prev2entry Map</em>' map isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Prev2entry Map</em>' map.
-	 * @see org.ynn.sqlitedb.modeler.model.common.CommonPackage#getMapping_Prev2entryMap()
-	 * @model mapType="org.ynn.sqlitedb.modeler.model.common.StringToMappingEntryMap<org.eclipse.emf.ecore.EString, org.ynn.sqlitedb.modeler.model.common.MappingEntry<T>>"
-	 * @generated
-	 */
-	EMap<String, MappingEntry<T>> getPrev2entryMap();
-
-	/**
-	 * Returns the value of the '<em><b>Curr2entry Map</b></em>' map.
-	 * The key is of type {@link java.lang.String},
-	 * and the value is of type {@link org.ynn.sqlitedb.modeler.model.common.MappingEntry<T>},
+	 * Returns the value of the '<em><b>Curr2entry Map</b></em>' containment reference list.
+	 * The list contents are of type {@link TMap}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Curr2entry Map</em>' map isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Curr2entry Map</em>' map.
+	 * @return the value of the '<em>Curr2entry Map</em>' containment reference list.
 	 * @see org.ynn.sqlitedb.modeler.model.common.CommonPackage#getMapping_Curr2entryMap()
-	 * @model mapType="org.ynn.sqlitedb.modeler.model.common.StringToMappingEntryMap<org.eclipse.emf.ecore.EString, org.ynn.sqlitedb.modeler.model.common.MappingEntry<T>>"
+	 * @model kind="reference" containment="true" suppressedSetVisibility="true"
 	 * @generated
 	 */
-	EMap<String, MappingEntry<T>> getCurr2entryMap();
-
-	/**
-	 * Returns the value of the '<em><b>Entries</b></em>' containment reference list.
-	 * The list contents are of type {@link org.ynn.sqlitedb.modeler.model.common.MappingEntry}&lt;T>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Entries</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Entries</em>' containment reference list.
-	 * @see org.ynn.sqlitedb.modeler.model.common.CommonPackage#getMapping_Entries()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<MappingEntry<T>> getEntries();
+	EList<TMap> getCurr2entryMap();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -115,5 +79,13 @@ public interface Mapping<T> extends EObject {
 	 * @generated
 	 */
 	void put(T previous, T current);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EList<MappingEntry<T>> entries();
 
 } // Mapping

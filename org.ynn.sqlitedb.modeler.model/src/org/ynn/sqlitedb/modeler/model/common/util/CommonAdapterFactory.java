@@ -6,9 +6,16 @@ import java.util.Map;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
+
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+
 import org.eclipse.emf.ecore.EObject;
+
+import org.ynn.sqlitedb.modeler.model.column.Column;
+
 import org.ynn.sqlitedb.modeler.model.common.*;
+
+import org.ynn.sqlitedb.modeler.model.table.Table;
 
 /**
  * <!-- begin-user-doc -->
@@ -71,7 +78,7 @@ public class CommonAdapterFactory extends AdapterFactoryImpl {
 				return createNameProviderAdapter();
 			}
 			@Override
-			public <T> Adapter caseMapping(Mapping<T> object) {
+			public <T, TMap> Adapter caseMapping(Mapping<T, TMap> object) {
 				return createMappingAdapter();
 			}
 			@Override
@@ -79,8 +86,12 @@ public class CommonAdapterFactory extends AdapterFactoryImpl {
 				return createMappingEntryAdapter();
 			}
 			@Override
-			public <T> Adapter caseStringToMappingEntryMap(Map.Entry<String,MappingEntry<?>> object) {
-				return createStringToMappingEntryMapAdapter();
+			public Adapter caseStringToTableMappingEntryMap(Map.Entry<String, MappingEntry<Table>> object) {
+				return createStringToTableMappingEntryMapAdapter();
+			}
+			@Override
+			public Adapter caseStringToColumnMappingEntryMap(Map.Entry<String, MappingEntry<Column>> object) {
+				return createStringToColumnMappingEntryMapAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -117,20 +128,6 @@ public class CommonAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.ynn.sqlitedb.modeler.model.common.PreviousVersionProvider <em>Previous Version Provider</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.ynn.sqlitedb.modeler.model.common.PreviousVersionProvider
-	 * @generated
-	 */
-	public Adapter createPreviousVersionProviderAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.ynn.sqlitedb.modeler.model.common.Mapping <em>Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -159,7 +156,7 @@ public class CommonAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>String To Mapping Entry Map</em>}'.
+	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>String To Table Mapping Entry Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -168,7 +165,21 @@ public class CommonAdapterFactory extends AdapterFactoryImpl {
 	 * @see java.util.Map.Entry
 	 * @generated
 	 */
-	public Adapter createStringToMappingEntryMapAdapter() {
+	public Adapter createStringToTableMappingEntryMapAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>String To Column Mapping Entry Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see java.util.Map.Entry
+	 * @generated
+	 */
+	public Adapter createStringToColumnMappingEntryMapAdapter() {
 		return null;
 	}
 

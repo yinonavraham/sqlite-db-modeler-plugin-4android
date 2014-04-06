@@ -7,9 +7,16 @@ import java.util.Map;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import org.ynn.sqlitedb.modeler.model.column.Column;
+
 import org.ynn.sqlitedb.modeler.model.common.*;
+
+import org.ynn.sqlitedb.modeler.model.table.Table;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,7 +64,8 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 		switch (eClass.getClassifierID()) {
 			case CommonPackage.MAPPING: return createMapping();
 			case CommonPackage.MAPPING_ENTRY: return createMappingEntry();
-			case CommonPackage.STRING_TO_MAPPING_ENTRY_MAP: return (EObject)createStringToMappingEntryMap();
+			case CommonPackage.STRING_TO_TABLE_MAPPING_ENTRY_MAP: return (EObject)createStringToTableMappingEntryMap();
+			case CommonPackage.STRING_TO_COLUMN_MAPPING_ENTRY_MAP: return (EObject)createStringToColumnMappingEntryMap();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -68,8 +76,8 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public <T> Mapping<T> createMapping() {
-		MappingImpl<T> mapping = new MappingImpl<T>();
+	public <T, TMap> Mapping<T, TMap> createMapping() {
+		MappingImpl<T, TMap> mapping = new MappingImpl<T, TMap>();
 		return mapping;
 	}
 
@@ -88,9 +96,19 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public <T> Map.Entry<String,MappingEntry<T>> createStringToMappingEntryMap() {
-		StringToMappingEntryMapImpl<T> stringToMappingEntryMap = new StringToMappingEntryMapImpl<T>();
-		return stringToMappingEntryMap;
+	public Map.Entry<String, MappingEntry<Table>> createStringToTableMappingEntryMap() {
+		StringToTableMappingEntryMapImpl stringToTableMappingEntryMap = new StringToTableMappingEntryMapImpl();
+		return stringToTableMappingEntryMap;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Map.Entry<String, MappingEntry<Column>> createStringToColumnMappingEntryMap() {
+		StringToColumnMappingEntryMapImpl stringToColumnMappingEntryMap = new StringToColumnMappingEntryMapImpl();
+		return stringToColumnMappingEntryMap;
 	}
 
 	/**

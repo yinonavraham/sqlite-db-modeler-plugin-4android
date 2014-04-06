@@ -22,11 +22,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="tableMapping" containment="true">
       <eGenericType eClassifier="#//common/Mapping">
         <eTypeArguments eClassifier="#//table/Table"/>
+        <eTypeArguments eClassifier="#//common/StringToTableMappingEntryMap"/>
       </eGenericType>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="columnMapping" containment="true">
       <eGenericType eClassifier="#//common/Mapping">
         <eTypeArguments eClassifier="#//column/Column"/>
+        <eTypeArguments eClassifier="#//common/StringToColumnMappingEntryMap"/>
       </eGenericType>
     </eStructuralFeatures>
   </eClassifiers>
@@ -48,6 +50,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Mapping">
       <eTypeParameters name="T"/>
+      <eTypeParameters name="TMap"/>
       <eOperations name="getPrevious">
         <eGenericType eTypeParameter="#//common/Mapping/T"/>
         <eParameters name="current" lowerBound="1">
@@ -74,20 +77,33 @@
           <eGenericType eTypeParameter="#//common/Mapping/T"/>
         </eParameters>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="prev2entryMap" upperBound="-1"
-          containment="true">
-        <eGenericType eClassifier="#//common/StringToMappingEntryMap">
+      <eOperations name="entries" upperBound="-1">
+        <eGenericType eClassifier="#//common/MappingEntry">
           <eTypeArguments eTypeParameter="#//common/Mapping/T"/>
         </eGenericType>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="prev2entryMap" upperBound="-1"
+          containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="suppressedGetVisibility" value="true"/>
+        </eAnnotations>
+        <eGenericType eTypeParameter="#//common/Mapping/TMap"/>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="curr2entryMap" upperBound="-1"
           containment="true">
-        <eGenericType eClassifier="#//common/StringToMappingEntryMap">
-          <eTypeArguments eTypeParameter="#//common/Mapping/T"/>
-        </eGenericType>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="suppressedSetVisibility" value="true"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="suppressedGetVisibility" value="true"/>
+        </eAnnotations>
+        <eGenericType eTypeParameter="#//common/Mapping/TMap"/>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
           containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="suppressedGetVisibility" value="true"/>
+        </eAnnotations>
         <eGenericType eClassifier="#//common/MappingEntry">
           <eTypeArguments eTypeParameter="#//common/Mapping/T"/>
         </eGenericType>
@@ -102,12 +118,19 @@
         <eGenericType eTypeParameter="#//common/MappingEntry/T"/>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="StringToMappingEntryMap" instanceClassName="java.util.Map$Entry">
-      <eTypeParameters name="T"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StringToTableMappingEntryMap" instanceClassName="java.util.Map$Entry">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1">
         <eGenericType eClassifier="#//common/MappingEntry">
-          <eTypeArguments eTypeParameter="#//common/StringToMappingEntryMap/T"/>
+          <eTypeArguments eClassifier="#//table/Table"/>
+        </eGenericType>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StringToColumnMappingEntryMap" instanceClassName="java.util.Map$Entry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1">
+        <eGenericType eClassifier="#//common/MappingEntry">
+          <eTypeArguments eClassifier="#//column/Column"/>
         </eGenericType>
       </eStructuralFeatures>
     </eClassifiers>
