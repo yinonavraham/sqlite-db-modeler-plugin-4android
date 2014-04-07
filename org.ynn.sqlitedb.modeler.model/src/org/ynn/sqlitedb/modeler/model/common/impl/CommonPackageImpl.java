@@ -2,10 +2,11 @@
  */
 package org.ynn.sqlitedb.modeler.model.common.impl;
 
+import java.util.Collection;
 import java.util.Map;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -15,11 +16,12 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.ynn.sqlitedb.modeler.model.ModelPackage;
 import org.ynn.sqlitedb.modeler.model.column.ColumnPackage;
 import org.ynn.sqlitedb.modeler.model.column.impl.ColumnPackageImpl;
+import org.ynn.sqlitedb.modeler.model.common.ColumnMapping;
 import org.ynn.sqlitedb.modeler.model.common.CommonFactory;
 import org.ynn.sqlitedb.modeler.model.common.CommonPackage;
-import org.ynn.sqlitedb.modeler.model.common.Mapping;
 import org.ynn.sqlitedb.modeler.model.common.MappingEntry;
 import org.ynn.sqlitedb.modeler.model.common.NameProvider;
+import org.ynn.sqlitedb.modeler.model.common.TableMapping;
 import org.ynn.sqlitedb.modeler.model.expression.ExpressionPackage;
 import org.ynn.sqlitedb.modeler.model.expression.impl.ExpressionPackageImpl;
 import org.ynn.sqlitedb.modeler.model.impl.ModelPackageImpl;
@@ -51,13 +53,6 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass mappingEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass mappingEntryEClass = null;
 
 	/**
@@ -73,6 +68,27 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * @generated
 	 */
 	private EClass stringToColumnMappingEntryMapEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tableMappingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass columnMappingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType collectionEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -181,96 +197,6 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getMapping() {
-		return mappingEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMapping_Prev2entryMap() {
-		return (EReference)mappingEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMapping_Curr2entryMap() {
-		return (EReference)mappingEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMapping_Entries() {
-		return (EReference)mappingEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getMapping__GetPrevious__Object() {
-		return mappingEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getMapping__GetAllPrevious() {
-		return mappingEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getMapping__GetCurrent__Object() {
-		return mappingEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getMapping__GetAllCurrent() {
-		return mappingEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getMapping__Put__Object_Object() {
-		return mappingEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getMapping__Entries() {
-		return mappingEClass.getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getMappingEntry() {
 		return mappingEntryEClass;
 	}
@@ -352,6 +278,195 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getTableMapping() {
+		return tableMappingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTableMapping_Prev2entryMap() {
+		return (EReference)tableMappingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTableMapping_Curr2entryMap() {
+		return (EReference)tableMappingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTableMapping_Entries() {
+		return (EReference)tableMappingEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTableMapping__GetPrevious__Table() {
+		return tableMappingEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTableMapping__GetAllPrevious() {
+		return tableMappingEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTableMapping__GetCurrent__Table() {
+		return tableMappingEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTableMapping__GetAllCurrent() {
+		return tableMappingEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTableMapping__Put__Table_Table() {
+		return tableMappingEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTableMapping__Entries() {
+		return tableMappingEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getColumnMapping() {
+		return columnMappingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getColumnMapping_Prev2entryMap() {
+		return (EReference)columnMappingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getColumnMapping_Curr2entryMap() {
+		return (EReference)columnMappingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getColumnMapping_Entries() {
+		return (EReference)columnMappingEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getColumnMapping__GetPrevious__Column() {
+		return columnMappingEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getColumnMapping__GetAllPrevious() {
+		return columnMappingEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getColumnMapping__GetCurrent__Column() {
+		return columnMappingEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getColumnMapping__GetAllCurrent() {
+		return columnMappingEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getColumnMapping__Put__Column_Column() {
+		return columnMappingEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getColumnMapping__Entries() {
+		return columnMappingEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getCollection() {
+		return collectionEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CommonFactory getCommonFactory() {
 		return (CommonFactory)getEFactoryInstance();
 	}
@@ -378,17 +493,6 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		nameProviderEClass = createEClass(NAME_PROVIDER);
 		createEAttribute(nameProviderEClass, NAME_PROVIDER__NAME);
 
-		mappingEClass = createEClass(MAPPING);
-		createEReference(mappingEClass, MAPPING__PREV2ENTRY_MAP);
-		createEReference(mappingEClass, MAPPING__CURR2ENTRY_MAP);
-		createEReference(mappingEClass, MAPPING__ENTRIES);
-		createEOperation(mappingEClass, MAPPING___GET_PREVIOUS__OBJECT);
-		createEOperation(mappingEClass, MAPPING___GET_ALL_PREVIOUS);
-		createEOperation(mappingEClass, MAPPING___GET_CURRENT__OBJECT);
-		createEOperation(mappingEClass, MAPPING___GET_ALL_CURRENT);
-		createEOperation(mappingEClass, MAPPING___PUT__OBJECT_OBJECT);
-		createEOperation(mappingEClass, MAPPING___ENTRIES);
-
 		mappingEntryEClass = createEClass(MAPPING_ENTRY);
 		createEAttribute(mappingEntryEClass, MAPPING_ENTRY__PREVIOUS);
 		createEAttribute(mappingEntryEClass, MAPPING_ENTRY__CURRENT);
@@ -400,6 +504,31 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		stringToColumnMappingEntryMapEClass = createEClass(STRING_TO_COLUMN_MAPPING_ENTRY_MAP);
 		createEAttribute(stringToColumnMappingEntryMapEClass, STRING_TO_COLUMN_MAPPING_ENTRY_MAP__KEY);
 		createEReference(stringToColumnMappingEntryMapEClass, STRING_TO_COLUMN_MAPPING_ENTRY_MAP__VALUE);
+
+		tableMappingEClass = createEClass(TABLE_MAPPING);
+		createEReference(tableMappingEClass, TABLE_MAPPING__PREV2ENTRY_MAP);
+		createEReference(tableMappingEClass, TABLE_MAPPING__CURR2ENTRY_MAP);
+		createEReference(tableMappingEClass, TABLE_MAPPING__ENTRIES);
+		createEOperation(tableMappingEClass, TABLE_MAPPING___GET_PREVIOUS__TABLE);
+		createEOperation(tableMappingEClass, TABLE_MAPPING___GET_ALL_PREVIOUS);
+		createEOperation(tableMappingEClass, TABLE_MAPPING___GET_CURRENT__TABLE);
+		createEOperation(tableMappingEClass, TABLE_MAPPING___GET_ALL_CURRENT);
+		createEOperation(tableMappingEClass, TABLE_MAPPING___PUT__TABLE_TABLE);
+		createEOperation(tableMappingEClass, TABLE_MAPPING___ENTRIES);
+
+		columnMappingEClass = createEClass(COLUMN_MAPPING);
+		createEReference(columnMappingEClass, COLUMN_MAPPING__PREV2ENTRY_MAP);
+		createEReference(columnMappingEClass, COLUMN_MAPPING__CURR2ENTRY_MAP);
+		createEReference(columnMappingEClass, COLUMN_MAPPING__ENTRIES);
+		createEOperation(columnMappingEClass, COLUMN_MAPPING___GET_PREVIOUS__COLUMN);
+		createEOperation(columnMappingEClass, COLUMN_MAPPING___GET_ALL_PREVIOUS);
+		createEOperation(columnMappingEClass, COLUMN_MAPPING___GET_CURRENT__COLUMN);
+		createEOperation(columnMappingEClass, COLUMN_MAPPING___GET_ALL_CURRENT);
+		createEOperation(columnMappingEClass, COLUMN_MAPPING___PUT__COLUMN_COLUMN);
+		createEOperation(columnMappingEClass, COLUMN_MAPPING___ENTRIES);
+
+		// Create data types
+		collectionEDataType = createEDataType(COLLECTION);
 	}
 
 	/**
@@ -430,9 +559,8 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		ColumnPackage theColumnPackage = (ColumnPackage)EPackage.Registry.INSTANCE.getEPackage(ColumnPackage.eNS_URI);
 
 		// Create type parameters
-		ETypeParameter mappingEClass_T = addETypeParameter(mappingEClass, "T");
-		ETypeParameter mappingEClass_TMap = addETypeParameter(mappingEClass, "TMap");
 		ETypeParameter mappingEntryEClass_T = addETypeParameter(mappingEntryEClass, "T");
+		addETypeParameter(collectionEDataType, "T");
 
 		// Set bounds for type parameters
 
@@ -442,50 +570,8 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		initEClass(nameProviderEClass, NameProvider.class, "NameProvider", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNameProvider_Name(), ecorePackage.getEString(), "name", null, 1, 1, NameProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(mappingEClass, Mapping.class, "Mapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		EGenericType g1 = createEGenericType(mappingEClass_TMap);
-		initEReference(getMapping_Prev2entryMap(), g1, null, "prev2entryMap", null, 0, -1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(mappingEClass_TMap);
-		initEReference(getMapping_Curr2entryMap(), g1, null, "curr2entryMap", null, 0, -1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(this.getMappingEntry());
-		EGenericType g2 = createEGenericType(mappingEClass_T);
-		g1.getETypeArguments().add(g2);
-		initEReference(getMapping_Entries(), g1, null, "entries", null, 0, -1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		EOperation op = initEOperation(getMapping__GetPrevious__Object(), null, "getPrevious", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(mappingEClass_T);
-		addEParameter(op, g1, "current", 1, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(mappingEClass_T);
-		initEOperation(op, g1);
-
-		op = initEOperation(getMapping__GetAllPrevious(), null, "getAllPrevious", 0, -1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(mappingEClass_T);
-		initEOperation(op, g1);
-
-		op = initEOperation(getMapping__GetCurrent__Object(), null, "getCurrent", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(mappingEClass_T);
-		addEParameter(op, g1, "previous", 1, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(mappingEClass_T);
-		initEOperation(op, g1);
-
-		op = initEOperation(getMapping__GetAllCurrent(), null, "getAllCurrent", 0, -1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(mappingEClass_T);
-		initEOperation(op, g1);
-
-		op = initEOperation(getMapping__Put__Object_Object(), null, "put", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(mappingEClass_T);
-		addEParameter(op, g1, "previous", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(mappingEClass_T);
-		addEParameter(op, g1, "current", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getMapping__Entries(), null, "entries", 0, -1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(this.getMappingEntry());
-		g2 = createEGenericType(mappingEClass_T);
-		g1.getETypeArguments().add(g2);
-		initEOperation(op, g1);
-
 		initEClass(mappingEntryEClass, MappingEntry.class, "MappingEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(mappingEntryEClass_T);
+		EGenericType g1 = createEGenericType(mappingEntryEClass_T);
 		initEAttribute(getMappingEntry_Previous(), g1, "previous", null, 0, 1, MappingEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(mappingEntryEClass_T);
 		initEAttribute(getMappingEntry_Current(), g1, "current", null, 0, 1, MappingEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -493,7 +579,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		initEClass(stringToTableMappingEntryMapEClass, Map.Entry.class, "StringToTableMappingEntryMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringToTableMappingEntryMap_Key(), ecorePackage.getEString(), "key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(this.getMappingEntry());
-		g2 = createEGenericType(theTablePackage.getTable());
+		EGenericType g2 = createEGenericType(theTablePackage.getTable());
 		g1.getETypeArguments().add(g2);
 		initEReference(getStringToTableMappingEntryMap_Value(), g1, null, "value", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -503,6 +589,85 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		g2 = createEGenericType(theColumnPackage.getColumn());
 		g1.getETypeArguments().add(g2);
 		initEReference(getStringToColumnMappingEntryMap_Value(), g1, null, "value", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(tableMappingEClass, TableMapping.class, "TableMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTableMapping_Prev2entryMap(), this.getStringToTableMappingEntryMap(), null, "prev2entryMap", null, 0, -1, TableMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTableMapping_Curr2entryMap(), this.getStringToTableMappingEntryMap(), null, "curr2entryMap", null, 0, -1, TableMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getMappingEntry());
+		g2 = createEGenericType(theTablePackage.getTable());
+		g1.getETypeArguments().add(g2);
+		initEReference(getTableMapping_Entries(), g1, null, "entries", null, 0, -1, TableMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		EOperation op = initEOperation(getTableMapping__GetPrevious__Table(), theTablePackage.getTable(), "getPrevious", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theTablePackage.getTable(), "current", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTableMapping__GetAllPrevious(), null, "getAllPrevious", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getCollection());
+		g2 = createEGenericType(theTablePackage.getTable());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = initEOperation(getTableMapping__GetCurrent__Table(), theTablePackage.getTable(), "getCurrent", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theTablePackage.getTable(), "previous", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTableMapping__GetAllCurrent(), null, "getAllCurrent", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getCollection());
+		g2 = createEGenericType(theTablePackage.getTable());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = initEOperation(getTableMapping__Put__Table_Table(), null, "put", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theTablePackage.getTable(), "previous", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theTablePackage.getTable(), "current", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTableMapping__Entries(), null, "entries", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getCollection());
+		g2 = createEGenericType(this.getMappingEntry());
+		g1.getETypeArguments().add(g2);
+		EGenericType g3 = createEGenericType(theTablePackage.getTable());
+		g2.getETypeArguments().add(g3);
+		initEOperation(op, g1);
+
+		initEClass(columnMappingEClass, ColumnMapping.class, "ColumnMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getColumnMapping_Prev2entryMap(), this.getStringToColumnMappingEntryMap(), null, "prev2entryMap", null, 0, -1, ColumnMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getColumnMapping_Curr2entryMap(), this.getStringToColumnMappingEntryMap(), null, "curr2entryMap", null, 0, -1, ColumnMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getMappingEntry());
+		g2 = createEGenericType(theColumnPackage.getColumn());
+		g1.getETypeArguments().add(g2);
+		initEReference(getColumnMapping_Entries(), g1, null, "entries", null, 0, -1, ColumnMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getColumnMapping__GetPrevious__Column(), theColumnPackage.getColumn(), "getPrevious", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theColumnPackage.getColumn(), "current", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getColumnMapping__GetAllPrevious(), null, "getAllPrevious", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getCollection());
+		g2 = createEGenericType(theColumnPackage.getColumn());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = initEOperation(getColumnMapping__GetCurrent__Column(), theColumnPackage.getColumn(), "getCurrent", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theColumnPackage.getColumn(), "previous", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getColumnMapping__GetAllCurrent(), null, "getAllCurrent", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getCollection());
+		g2 = createEGenericType(theColumnPackage.getColumn());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = initEOperation(getColumnMapping__Put__Column_Column(), null, "put", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theColumnPackage.getColumn(), "previous", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theColumnPackage.getColumn(), "current", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getColumnMapping__Entries(), null, "entries", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getCollection());
+		g2 = createEGenericType(this.getMappingEntry());
+		g1.getETypeArguments().add(g2);
+		g3 = createEGenericType(theColumnPackage.getColumn());
+		g2.getETypeArguments().add(g3);
+		initEOperation(op, g1);
+
+		// Initialize data types
+		initEDataType(collectionEDataType, Collection.class, "Collection", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 	}
 
 } //CommonPackageImpl

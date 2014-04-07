@@ -2,20 +2,16 @@
  */
 package org.ynn.sqlitedb.modeler.model.common.impl;
 
+import java.util.Collection;
 import java.util.Map;
-
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import org.ynn.sqlitedb.modeler.model.column.Column;
-
 import org.ynn.sqlitedb.modeler.model.common.*;
-
 import org.ynn.sqlitedb.modeler.model.table.Table;
 
 /**
@@ -62,10 +58,11 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case CommonPackage.MAPPING: return createMapping();
 			case CommonPackage.MAPPING_ENTRY: return createMappingEntry();
 			case CommonPackage.STRING_TO_TABLE_MAPPING_ENTRY_MAP: return (EObject)createStringToTableMappingEntryMap();
 			case CommonPackage.STRING_TO_COLUMN_MAPPING_ENTRY_MAP: return (EObject)createStringToColumnMappingEntryMap();
+			case CommonPackage.TABLE_MAPPING: return createTableMapping();
+			case CommonPackage.COLUMN_MAPPING: return createColumnMapping();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -76,9 +73,29 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public <T, TMap> Mapping<T, TMap> createMapping() {
-		MappingImpl<T, TMap> mapping = new MappingImpl<T, TMap>();
-		return mapping;
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case CommonPackage.COLLECTION:
+				return createCollectionFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case CommonPackage.COLLECTION:
+				return convertCollectionToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
 	}
 
 	/**
@@ -109,6 +126,44 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	public Map.Entry<String, MappingEntry<Column>> createStringToColumnMappingEntryMap() {
 		StringToColumnMappingEntryMapImpl stringToColumnMappingEntryMap = new StringToColumnMappingEntryMapImpl();
 		return stringToColumnMappingEntryMap;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TableMapping createTableMapping() {
+		TableMappingImpl tableMapping = new TableMappingImpl();
+		return tableMapping;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ColumnMapping createColumnMapping() {
+		ColumnMappingImpl columnMapping = new ColumnMappingImpl();
+		return columnMapping;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Collection<?> createCollectionFromString(EDataType eDataType, String initialValue) {
+		return (Collection<?>)super.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCollectionToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(instanceValue);
 	}
 
 	/**

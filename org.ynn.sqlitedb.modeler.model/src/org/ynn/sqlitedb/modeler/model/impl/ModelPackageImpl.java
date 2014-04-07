@@ -4,45 +4,28 @@ package org.ynn.sqlitedb.modeler.model.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.ynn.sqlitedb.modeler.model.Database;
 import org.ynn.sqlitedb.modeler.model.DatabaseVersion;
 import org.ynn.sqlitedb.modeler.model.DatabaseVersions;
 import org.ynn.sqlitedb.modeler.model.ModelFactory;
 import org.ynn.sqlitedb.modeler.model.ModelPackage;
-
 import org.ynn.sqlitedb.modeler.model.column.ColumnPackage;
-
 import org.ynn.sqlitedb.modeler.model.column.impl.ColumnPackageImpl;
-
 import org.ynn.sqlitedb.modeler.model.common.CommonPackage;
-
 import org.ynn.sqlitedb.modeler.model.common.impl.CommonPackageImpl;
-
 import org.ynn.sqlitedb.modeler.model.expression.ExpressionPackage;
-
 import org.ynn.sqlitedb.modeler.model.expression.impl.ExpressionPackageImpl;
-
 import org.ynn.sqlitedb.modeler.model.index.IndexPackage;
-
 import org.ynn.sqlitedb.modeler.model.index.impl.IndexPackageImpl;
-
 import org.ynn.sqlitedb.modeler.model.table.TablePackage;
-
 import org.ynn.sqlitedb.modeler.model.table.impl.TablePackageImpl;
-
 import org.ynn.sqlitedb.modeler.model.trigger.TriggerPackage;
-
 import org.ynn.sqlitedb.modeler.model.trigger.impl.TriggerPackageImpl;
-
 import org.ynn.sqlitedb.modeler.model.view.ViewPackage;
-
 import org.ynn.sqlitedb.modeler.model.view.impl.ViewPackageImpl;
 
 /**
@@ -433,18 +416,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getDatabaseVersion_Database(), this.getDatabase(), null, "database", null, 1, 1, DatabaseVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDatabaseVersion_PreviousVersion(), this.getDatabaseVersion(), this.getDatabaseVersion_NextVersion(), "previousVersion", null, 0, 1, DatabaseVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDatabaseVersion_NextVersion(), this.getDatabaseVersion(), this.getDatabaseVersion_PreviousVersion(), "nextVersion", null, 0, 1, DatabaseVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		EGenericType g1 = createEGenericType(theCommonPackage.getMapping());
-		EGenericType g2 = createEGenericType(theTablePackage.getTable());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(theCommonPackage.getStringToTableMappingEntryMap());
-		g1.getETypeArguments().add(g2);
-		initEReference(getDatabaseVersion_TableMapping(), g1, null, "tableMapping", null, 0, 1, DatabaseVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(theCommonPackage.getMapping());
-		g2 = createEGenericType(theColumnPackage.getColumn());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(theCommonPackage.getStringToColumnMappingEntryMap());
-		g1.getETypeArguments().add(g2);
-		initEReference(getDatabaseVersion_ColumnMapping(), g1, null, "columnMapping", null, 0, 1, DatabaseVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDatabaseVersion_TableMapping(), theCommonPackage.getTableMapping(), null, "tableMapping", null, 0, 1, DatabaseVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDatabaseVersion_ColumnMapping(), theCommonPackage.getColumnMapping(), null, "columnMapping", null, 0, 1, DatabaseVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(databaseEClass, Database.class, "Database", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDatabase_Tables(), theTablePackage.getTable(), theTablePackage.getTable_Database(), "tables", null, 0, -1, Database.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

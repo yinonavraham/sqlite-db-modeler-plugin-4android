@@ -78,12 +78,6 @@ public class CommonSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CommonPackage.MAPPING: {
-				Mapping<?, ?> mapping = (Mapping<?, ?>)theEObject;
-				T1 result = caseMapping(mapping);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case CommonPackage.MAPPING_ENTRY: {
 				MappingEntry<?> mappingEntry = (MappingEntry<?>)theEObject;
 				T1 result = caseMappingEntry(mappingEntry);
@@ -99,6 +93,18 @@ public class CommonSwitch<T1> extends Switch<T1> {
 			case CommonPackage.STRING_TO_COLUMN_MAPPING_ENTRY_MAP: {
 				@SuppressWarnings("unchecked") Map.Entry<String, MappingEntry<Column>> stringToColumnMappingEntryMap = (Map.Entry<String, MappingEntry<Column>>)theEObject;
 				T1 result = caseStringToColumnMappingEntryMap(stringToColumnMappingEntryMap);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CommonPackage.TABLE_MAPPING: {
+				TableMapping tableMapping = (TableMapping)theEObject;
+				T1 result = caseTableMapping(tableMapping);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CommonPackage.COLUMN_MAPPING: {
+				ColumnMapping columnMapping = (ColumnMapping)theEObject;
+				T1 result = caseColumnMapping(columnMapping);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -118,21 +124,6 @@ public class CommonSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseNameProvider(NameProvider object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Mapping</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Mapping</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public <T, TMap> T1 caseMapping(Mapping<T, TMap> object) {
 		return null;
 	}
 
@@ -178,6 +169,36 @@ public class CommonSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseStringToColumnMappingEntryMap(Map.Entry<String, MappingEntry<Column>> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Table Mapping</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Table Mapping</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTableMapping(TableMapping object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Column Mapping</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Column Mapping</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseColumnMapping(ColumnMapping object) {
 		return null;
 	}
 

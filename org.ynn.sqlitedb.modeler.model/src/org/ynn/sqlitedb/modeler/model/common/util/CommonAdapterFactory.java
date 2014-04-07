@@ -78,10 +78,6 @@ public class CommonAdapterFactory extends AdapterFactoryImpl {
 				return createNameProviderAdapter();
 			}
 			@Override
-			public <T, TMap> Adapter caseMapping(Mapping<T, TMap> object) {
-				return createMappingAdapter();
-			}
-			@Override
 			public <T> Adapter caseMappingEntry(MappingEntry<T> object) {
 				return createMappingEntryAdapter();
 			}
@@ -92,6 +88,14 @@ public class CommonAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseStringToColumnMappingEntryMap(Map.Entry<String, MappingEntry<Column>> object) {
 				return createStringToColumnMappingEntryMapAdapter();
+			}
+			@Override
+			public Adapter caseTableMapping(TableMapping object) {
+				return createTableMappingAdapter();
+			}
+			@Override
+			public Adapter caseColumnMapping(ColumnMapping object) {
+				return createColumnMappingAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -124,20 +128,6 @@ public class CommonAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNameProviderAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.ynn.sqlitedb.modeler.model.common.Mapping <em>Mapping</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.ynn.sqlitedb.modeler.model.common.Mapping
-	 * @generated
-	 */
-	public Adapter createMappingAdapter() {
 		return null;
 	}
 
@@ -180,6 +170,34 @@ public class CommonAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStringToColumnMappingEntryMapAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.ynn.sqlitedb.modeler.model.common.TableMapping <em>Table Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.ynn.sqlitedb.modeler.model.common.TableMapping
+	 * @generated
+	 */
+	public Adapter createTableMappingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.ynn.sqlitedb.modeler.model.common.ColumnMapping <em>Column Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.ynn.sqlitedb.modeler.model.common.ColumnMapping
+	 * @generated
+	 */
+	public Adapter createColumnMappingAdapter() {
 		return null;
 	}
 
